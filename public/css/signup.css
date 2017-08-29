@@ -1,0 +1,47 @@
+#signup .form-title {
+	padding: 20px 40px 0 40px;
+	text-align: center;
+}
+
+#signup hr {
+	width: 90%;
+}
+
+#signupForm{
+	width: 60%;
+}
+
+#signupForm form {
+	display: flex;
+	flex-flow: wrap;
+	justify-content: space-between;
+}
+
+#signupForm input[type="text"] {
+	width: 40%;
+	height: 40px;
+}
+
+/* Responsive */
+
+@media only screen and (max-width: 640px) {
+	#signupForm {
+		width: 90%;
+		height: 60%;
+	}
+	
+	#signupForm form {
+		justify-content: center;
+		padding-bottom: 20px;
+	}
+
+	#signupForm input[type="text"] {
+		width: 80%;
+		height: 25px;
+		margin-bottom: 5px;
+	}
+
+	#signup .form-title {
+		font-size: 35px;
+	}
+}

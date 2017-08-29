@@ -1,0 +1,25 @@
+.form-input[type="text"] {
+	padding: 12px 12px 12px 12px;
+	font-size: 15px;
+	border: 0;
+	background-color: #11db9f;
+	transition: opacity 0.2s ease;
+	opacity: 0.4;
+}
+
+.form-input[type="text"]:focus{
+	outline: none;
+	opacity: 1;
+}
+
+.form-title {
+	font-size: 30px;
+	font-weight: 100;
+	opacity: 0.8;
+}
+
+@media only screen and (max-width: 640px) {
+	.form-title {
+		font-size: 25px;
+	}
+}

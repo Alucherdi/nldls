@@ -1,0 +1,30 @@
+#loginForm {
+	padding: 40px 40px 40px 40px;
+	text-align: center;
+	width: 50%;
+}
+
+#loginForm > form {
+	display: flex;
+	align-items: center;
+	flex-flow: column;
+	padding-top: 15px;
+}
+
+#loginForm input[type="text"] {
+	width: 70%;
+	margin-bottom: 5px;
+}
+
+/* Responsive */
+
+@media only screen and (max-width: 640px) {
+	#loginForm {
+		width: 90%;
+	}
+
+	#loginForm input[type="text"] {
+		width: 90%;
+	}
+	
+}
