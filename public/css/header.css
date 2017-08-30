@@ -1,0 +1,25 @@
+.navbar {
+	display: flex;
+	flex-flow: wrap;
+	justify-content: space-between;
+	align-items: center;
+}
+
+/* Responsive */
+
+@media only screen and (max-width: 980px) {
+	.navbar {
+		justify-content: center;
+	}
+	
+	.navbar div {
+		width: 80%;
+		display: flex;
+		justify-content: center;
+	}
+
+	.navbar > div > img {
+		object-fit: contain;
+		max-width: 100%;
+	}
+}

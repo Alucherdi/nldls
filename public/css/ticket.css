@@ -22,11 +22,11 @@
 #ticketContent > form > input[type="text"] {
 	padding: 20px 20px 20px 20px;
 	width: 300px;
-	height: 200px;
+	height: 150px;
 	background-color: rgba(0, 0, 0, 0);
 	background-image: url("https://t3.ftcdn.net/jpg/00/88/66/62/240_F_88666263_Eq0QV4SVRkWHgkNaRJn671g9BNnphQmm.jpg");
 	background-position: center;
-	background-size: contain;
+	background-size: 130%;
 	background-repeat: no-repeat;
 	opacity: 1;
 
@@ -54,4 +54,16 @@
 
 #ticketContent > form input[type="submit"]:hover {
 	box-shadow: inset 0 0 0 5px #333333;
+}
+
+/* Responsive */
+
+@media only screen and (max-width: 470px) {
+	#ticketContent {
+		width: 90%;
+	}
+
+	#ticketContent > form input[type="text"] {
+		width: 100%;
+	}
 }

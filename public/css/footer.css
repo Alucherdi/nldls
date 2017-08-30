@@ -1,0 +1,31 @@
+.hose {
+	display: flex;
+	justify-content: space-between;
+	background-image: url("/img/Plecas colores petro 7.png");
+	background-repeat: no-repeat;
+	background-position: bottom;
+}
+
+.brand {
+	width: 100%;
+	text-align: center;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	background-color: rgba(0, 0, 0, 0.8);
+	color: white;
+	font-weight: 100;
+	font-size: 20px;
+}
+
+/* Responsive */
+
+@media only screen and (max-width: 710px) {
+	.hose div {
+		width: 40%;
+	}
+
+	.hose div img {
+		object-fit: contain;
+		max-width: 100%;
+	}
+}
