@@ -46,6 +46,8 @@
 	padding: 10px 10px 10px 10px;
 
 	transition: box-shadow 0.9s cubic-bezier(0.86, 0, 0.07, 1);
+
+	margin-top: 10px;
 }
 
 #ticketContent > form input[type="submit"]:focus {

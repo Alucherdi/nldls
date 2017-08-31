@@ -16,6 +16,18 @@
 	margin-bottom: 5px;
 }
 
+#loginForm form .buttons {
+	display: flex;
+	justify-content: space-around;
+	width: 100%;
+
+	padding-top: 20px;
+}
+
+#loginForm form button, #loginForm form input[type="submit"] {
+	font-size: 12px;
+}
+
 /* Responsive */
 
 @media only screen and (max-width: 640px) {

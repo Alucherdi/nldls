@@ -9,9 +9,10 @@
 
 #signupForm{
 	width: 60%;
+	height: 100%;
 }
 
-#signupForm form {
+#signupForm .struct {
 	display: flex;
 	flex-flow: wrap;
 	justify-content: space-between;
@@ -22,6 +23,15 @@
 	height: 40px;
 }
 
+.signupSubmit {
+	padding-top: 20px;
+	padding-bottom: 20px;
+}
+
+.signupSubmit input {
+	font-size: 17px;
+}
+
 /* Responsive */
 
 @media only screen and (max-width: 640px) {
@@ -30,7 +40,7 @@
 		height: 60%;
 	}
 	
-	#signupForm form {
+	#signupForm .struct {
 		justify-content: center;
 		padding-bottom: 20px;
 	}

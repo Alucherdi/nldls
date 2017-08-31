@@ -1,9 +1,11 @@
 .hose {
 	display: flex;
+	width: 100%;
 	justify-content: space-between;
 	background-image: url("/img/Plecas colores petro 7.png");
 	background-repeat: no-repeat;
 	background-position: bottom;
+	background-size: 100%;
 }
 
 .brand {
