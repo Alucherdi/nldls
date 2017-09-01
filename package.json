@@ -12,6 +12,7 @@
     "body-parser": "^1.17.2",
     "express": "^4.15.4",
     "express-handlebars": "^3.0.0",
+    "express-session": "^1.15.5",
     "mysql": "^2.14.1"
   }
 }
