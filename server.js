@@ -3,6 +3,8 @@ var app = express()
 
 var bp = require("body-parser")
 
+var session = require("express-session")
+
 var port = process.env.PORT || 4200
 
 var mysql = require("mysql")
@@ -13,23 +15,32 @@ var connection = mysql.createConnection({
 	database: "Litros_de_la_suerte"
 })
 
-/*
-connection.connect()
-connection.query("SELECT * FROM tickets WHERE id = 1", (err, res, fields) => {
-	if (err) throw err
-	console.log("Res: " + res[0].folio)
-})
-*/
 var hbs = require("express-handlebars")
 
 app.engine("hbs", hbs({defaultLayout: "main", extname: "hbs"}))
 app.set("view engine", "hbs")
+
+app.use(session({
+	name: "ldls-session",
+	secret: "321654",
+	resave: true, 
+	saveUninitialized: true
+}))
+
 app.use(express.static("public"))
+
 app.use(bp.json())
 app.use(bp.urlencoded({ extended: true}))
 
 app.get("/", (req, res) => {
+	console.log(req.session.test)
 	res.render("home")
+})
+
+app.get("/secret", (req, res) => {
+	req.session.test = "Secret visited"
+	console.log(req.session.test)
+	res.send("Got the secret level boy ;). <br>Some hidden shit is over here")
 })
 
 app.get("/ingresa", (req, res) => {
@@ -45,7 +56,13 @@ app.post("/ingresa", (req, res) => {
 		if (err) {
 			throw err
 		}
-		console.log(result[0])
+		var user = result[0]
+		if (user == undefined) {
+			res.redirect("/ingresa?login=false")
+		} else {
+			req.session.user = user
+			res.redirect("/ticket")
+		}
 	})
 })
 
@@ -73,6 +90,23 @@ app.post("/registro", (req, res) => {
 
 app.get("/ticket", (req, res) => {
 	res.render("ticket")
+})
+
+app.post("/addTicket", (req, res) => {
+	var query = "SELECT * FROM tickets WHERE folio = '" + req.body.folio + "'"
+	var msg = ""
+	connection.query(query, (err, result, f) => {
+		if (err) {
+			throw err
+		}
+		if (result[0].usado == 1) {
+			msg = "Ticket ya registrado"
+		} else if (result[0].usado == 0) {
+			query = "UPDATE tickets SET usado = 1, usuario = '" + req.session.user.id + "' WHERE folio = '" + req.body.folio + "'"
+			console.log("Ticket modificado")
+			res.redirect("/ticket")
+		}
+	}) 
 })
 
 app.listen(port, () => {
