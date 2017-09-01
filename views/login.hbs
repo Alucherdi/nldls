@@ -3,9 +3,9 @@
 	<div id="loginForm" class="card">
 		<div class="form-title">Inicia sesión o registrate para continuar:</div>
 		<hr>
-		<form action="">
-			<input type="text" class="form-input" placeholder="usuario">
-			<input type="text" class="form-input" placeholder="password">
+		<form action="" method="POST">
+			<input type="text" class="form-input" name="usuario" placeholder="usuario">
+			<input type="text" class="form-input" name="password" placeholder="password">
 			<div class="buttons">
 				<button type="submit" class="form-button">Ingresa</button>
 				<button type="button" class="form-button" onclick="window.location.href = '/registro'">Registrate</button>
