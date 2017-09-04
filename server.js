@@ -123,7 +123,8 @@ app.get("/ticket", (req, res) => {
 		console.log(req.session.user.usuario)
 		var added = req.query.success
 		var repeated = req.query.repeated
-		res.render("ticket", { added : added, repeated: repeated })
+		var error = req.query.error
+		res.render("ticket", { added : added, repeated: repeated , error: error})
 	}
 })
 
@@ -135,7 +136,8 @@ app.post("/addTicket", (req, res) => {
 		var msg = ""
 		connection.query(query, (err, result, f) => {
 			if (err) {
-				throw err
+				console.log(err)
+				res.redirect("/ticket?error=true")
 			}
 			if (result[0].usado == 1) {
 				res.redirect("/ticket?repeated=true")
