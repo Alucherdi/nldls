@@ -6,6 +6,10 @@
 {{#if repeated}}
 	<script>toast("Este ticket ya ha sido registrado anteriormente!")</script>
 {{/if}}
+
+{{#if error}}
+	<script>toast("Ticket no existente!")</script>
+{{/if}}
 <div id="ticket">
 	<div id="ticketContent" class="card">
 		<div class="form-title">
@@ -13,7 +17,7 @@
 		</div>
 		<hr>
 		<form action="/addTicket" method="POST">
-			<input type="text" class="form-input" placeholder="Ticket" name="folio">
+			<input type="text" class="form-input" placeholder="Ticket" name="folio" required>
 			<button type="submit" class="form-button">Subir</button>
 		</form>	
 	</div>
