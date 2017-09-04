@@ -103,8 +103,14 @@ app.post("/addTicket", (req, res) => {
 			msg = "Ticket ya registrado"
 		} else if (result[0].usado == 0) {
 			query = "UPDATE tickets SET usado = 1, usuario = '" + req.session.user.id + "' WHERE folio = '" + req.body.folio + "'"
-			console.log("Ticket modificado")
-			res.redirect("/ticket")
+			connection.query(query, (err2, result2, f) => {
+				if (err2) {
+					throw err2
+				}
+				console.log("Ticket modificado")
+				res.redirect("/ticket")
+			})
+			
 		}
 	}) 
 })
