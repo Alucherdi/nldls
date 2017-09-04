@@ -2,6 +2,10 @@
 {{#if added}}
 	<script>toast("Ticket agregado exitosamente!")</script>
 {{/if}}
+
+{{#if repeated}}
+	<script>toast("Este ticket ya ha sido registrado anteriormente!")</script>
+{{/if}}
 <div id="ticket">
 	<div id="ticketContent" class="card">
 		<div class="form-title">
