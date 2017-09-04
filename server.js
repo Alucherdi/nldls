@@ -67,7 +67,12 @@ app.get("/secret", (req, res) => {
 })
 
 app.get("/ingresa", (req, res) => {
-	res.render("login")
+	if (req.session.user != undefined) {
+		res.redirect("/ticket")
+	} else {
+		var registered = req.query.success
+		res.render("login",{ registered: registered })
+	}	
 })
 
 app.post("/ingresa", (req, res) => {
@@ -107,7 +112,7 @@ app.post("/registro", (req, res) => {
 		}
 		console.log(result)
 	})
-	res.redirect("/ingresa")
+	res.redirect("/ingresa?success=true")
 	
 })
 
@@ -133,7 +138,7 @@ app.post("/addTicket", (req, res) => {
 				throw err
 			}
 			if (result[0].usado == 1) {
-				res.redirect("/ticket=?repeated=true")
+				res.redirect("/ticket?repeated=true")
 			} else if (result[0].usado == 0) {
 				query = "UPDATE tickets SET usado = 1, usuario = '" + req.session.user.id + "' WHERE folio = '" + req.body.folio + "'"
 				connection.query(query, (err2, result2, f) => {

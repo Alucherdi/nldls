@@ -1,4 +1,9 @@
 <link rel="stylesheet" href="/css/login.css">
+
+{{#if registered }}
+	<script>toast("Usuario registrado correctamente!")</script>
+{{/if}}
+
 <div id="login" class="flexbox">
 	<div id="loginForm" class="card">
 		<div class="form-title">Inicia sesión o registrate para continuar:</div>
