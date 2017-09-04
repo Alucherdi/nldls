@@ -92,6 +92,7 @@ app.get("/ticket", (req, res) => {
 	if (req.session.user == undefined) {
 		res.redirect("/ingresa")
 	}
+	console.log(req.session.user.usuario)
 	var added = req.query.success
 	res.render("ticket", { added : added })
 })
