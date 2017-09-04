@@ -91,7 +91,6 @@ app.get("/registro", (req, res) => {
 	res.render("signup")
 })
 
-app.
 app.post("/registro", (req, res) => {
 	
 	var query = "INSERT INTO usuarios(nombre, apellidos, usuario, password, correo, telefono) VALUES ('" + req.body.nombre + "', "
