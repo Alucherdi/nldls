@@ -94,6 +94,9 @@ app.get("/ticket", (req, res) => {
 })
 
 app.post("/addTicket", (req, res) => {
+	if (req.session.user == undefined) {
+		res.redirect("/ingresa")
+	}
 	var query = "SELECT * FROM tickets WHERE folio = '" + req.body.folio + "'"
 	var msg = ""
 	connection.query(query, (err, result, f) => {
