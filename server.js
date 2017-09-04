@@ -139,18 +139,23 @@ app.post("/addTicket", (req, res) => {
 				console.log(err)
 				res.redirect("/ticket?error=true")
 			}
-			if (result[0].usado == 1) {
-				res.redirect("/ticket?repeated=true")
-			} else if (result[0].usado == 0) {
-				query = "UPDATE tickets SET usado = 1, usuario = '" + req.session.user.id + "' WHERE folio = '" + req.body.folio + "'"
-				connection.query(query, (err2, result2, f) => {
-					if (err2) {
-						throw err2
-					}
-					console.log("Ticket modificado")
-					res.redirect("/ticket?success=true")
-				})
-				
+			if (result[0] == undefined) {
+				res.redirect("/ticket?error=true")
+			}
+			else {
+				if (result[0].usado == 1) {
+					res.redirect("/ticket?repeated=true")
+				} else if (result[0].usado == 0) {
+					query = "UPDATE tickets SET usado = 1, usuario = '" + req.session.user.id + "' WHERE folio = '" + req.body.folio + "'"
+					connection.query(query, (err2, result2, f) => {
+						if (err2) {
+							throw err2
+						}
+						console.log("Ticket modificado")
+						res.redirect("/ticket?success=true")
+					})
+					
+				}
 			}
 		})
 	}
