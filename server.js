@@ -91,10 +91,11 @@ app.post("/registro", (req, res) => {
 app.get("/ticket", (req, res) => {
 	if (req.session.user == undefined) {
 		res.redirect("/ingresa")
+	} else {
+		console.log(req.session.user.usuario)
+		var added = req.query.success
+		res.render("ticket", { added : added })
 	}
-	console.log(req.session.user.usuario)
-	var added = req.query.success
-	res.render("ticket", { added : added })
 })
 
 app.post("/addTicket", (req, res) => {
