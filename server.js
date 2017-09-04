@@ -9,8 +9,10 @@ var port = process.env.PORT || 4200
 
 var mysql = require("mysql")
 
+var connection
+
 function handleDisconnect () {
-	var connection = mysql.createConnection({
+	connection = mysql.createConnection({
 		host: "50.62.209.199",
 		user: "alucherdi",
 		password: "mundoweb666",
