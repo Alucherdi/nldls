@@ -61,7 +61,7 @@ app.post("/ingresa", (req, res) => {
 			res.redirect("/ingresa?login=false")
 		} else {
 			req.session.user = user
-			res.redirect("/ticket")
+			res.redirect("/ticket?login=true")
 		}
 	})
 })
@@ -89,7 +89,8 @@ app.post("/registro", (req, res) => {
 })
 
 app.get("/ticket", (req, res) => {
-	res.render("ticket")
+	var added = req.query.success
+	res.render("ticket", { added : added })
 })
 
 app.post("/addTicket", (req, res) => {
@@ -108,7 +109,7 @@ app.post("/addTicket", (req, res) => {
 					throw err2
 				}
 				console.log("Ticket modificado")
-				res.redirect("/ticket")
+				res.redirect("/ticket?success=true")
 			})
 			
 		}

@@ -1,0 +1,19 @@
+#toastManager {
+	position: fixed;
+	top: -100px;
+	width: 200px;
+	height: 100px;
+	background-color: rgba(0, 0, 0, 0.6);
+	color: white;
+	
+	opacity: 0;
+	left: 50%;
+	transform: translate(-50%, 0);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	transition: all 1s cubic-bezier(0.19, 1, 0.22, 1);
+
+	padding: 15px 15px 15px 15px;
+}
