@@ -55,6 +55,35 @@
    color: #303030;
 }
 
+table {
+    border-collapse: collapse;
+}
+table, th, td{
+    font-family: 'Quicksand', sans-serif;
+    font-size: 14px;
+    padding: 15px;
+    text-align: left;
+    border-bottom: 1px solid;
+    border-color: rgb(200, 200, 200);
+}
+
+th {
+    background-color: #A01D26;
+    color: #F4F4EF;
+}
+
+tr {
+    color: rgba(0, 0, 0, 0.8)
+}
+
+tr:nth-child(even) {
+    background-color: #d0e0e0;
+}
+
+tr:hover {
+    background-color: #ACBEBE;
+}
+
 /* Responsive */
 
 @media only screen and (max-width: 640px) {
