@@ -75,6 +75,23 @@ app.get("/ingresa", (req, res) => {
 	}	
 })
 
+app.get("/mistickets", (req, res)  => {
+	if (req.session.user == undefined) {
+		res.redirect("/ingresa")
+	} else {
+		var query = "SELECT * FROM tickets WHERE usuario = " 
+			+ req.session.user.id
+		
+		connection.query(query, (err, result, f) => {
+			if (err) {
+				throw err
+			}
+			
+			res.render("mytickets", { tickets: result })
+		})
+	}
+})
+
 app.post("/ingresa", (req, res) => {
 	var query = "SELECT * FROM usuarios WHERE usuario = " 
 	+ "'" + req.body.usuario + "' AND password = "
