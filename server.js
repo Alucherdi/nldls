@@ -55,8 +55,12 @@ app.use(express.static("public"))
 app.use(bp.json())
 app.use(bp.urlencoded({ extended: true}))
 
+app.use((req, res, next) => {
+	res.locals.user = req.session.user
+	next()
+})
+
 app.get("/", (req, res) => {
-	console.log(req.session.test)
 	res.render("home")
 })
 
@@ -176,6 +180,10 @@ app.post("/addTicket", (req, res) => {
 			}
 		})
 	}
+})
+
+app.get("/logout", (req, res) => {
+	req.session.user = null
 })
 
 app.listen(port, () => {
