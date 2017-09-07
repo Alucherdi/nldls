@@ -7,6 +7,10 @@
 
 .logout {
 	position: fixed;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: 30px;
 	right: 30px;
 	top: 30px;
 	border-radius: 50px;
