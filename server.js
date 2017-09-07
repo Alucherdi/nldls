@@ -74,7 +74,8 @@ app.get("/ingresa", (req, res) => {
 	if (req.session.user != undefined) {
 		res.redirect("/ticket")
 	} else {
-		var registered = req.query.success
+		var rUsuario
+		egistered = req.query.success
 		res.render("login",{ registered: registered })
 	}	
 })
@@ -184,6 +185,7 @@ app.post("/addTicket", (req, res) => {
 
 app.get("/logout", (req, res) => {
 	req.session.user = null
+	res.redirect("/")
 })
 
 app.listen(port, () => {
