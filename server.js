@@ -74,8 +74,7 @@ app.get("/ingresa", (req, res) => {
 	if (req.session.user != undefined) {
 		res.redirect("/ticket")
 	} else {
-		var rUsuario
-		egistered = req.query.success
+		var registered = req.query.success
 		res.render("login",{ registered: registered })
 	}	
 })
