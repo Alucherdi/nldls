@@ -182,6 +182,17 @@ app.post("/addTicket", (req, res) => {
 	}
 })
 
+app.get("/ranking", (req, res) => {
+	var query = "SELECT usuarios.nombre, COUNT(tickets.usuario) AS tickets FROM usuarios,tickets WHERE tickets.usuario != 0 AND tickets.usuario = usuarios.id GROUP BY tickets.usuario ORDER BY count(*) DESC"
+	connection.query(query, (err, result, f) => {
+		if (err) {
+			throw err
+		}
+		
+		res.render("ranking", { tickets: result })
+	})
+})
+
 app.get("/logout", (req, res) => {
 	req.session.user = null
 	res.redirect("/")
