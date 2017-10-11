@@ -16,7 +16,7 @@ function handleDisconnect () {
 		host: "50.62.209.199",
 		user: "alucherdi",
 		password: "mundoweb666",
-		database: "Litros_de_la_suerte"
+		database: "Litros_de_la_suerte2"
 	})
 
 	connection.connect(function (err) {
