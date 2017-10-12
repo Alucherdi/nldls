@@ -1,0 +1,16 @@
+<div id="ranking" align="center">
+	<table>
+		<tr>
+			<th>Posición</th>
+			<th>Usuario</th>
+			<th>Tickets</th>
+		</tr>
+		{{#each tickets}}
+		<tr>
+			<td>{{this.lugar}}</td>
+			<td>{{this.nombre}}</td>
+			<td>{{this.tickets}}</td>
+		</tr>
+		{{/each}}
+	</table>
+</div>

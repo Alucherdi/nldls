@@ -192,6 +192,16 @@ app.get("/ranking", (req, res) => {
 		res.render("ranking", { tickets: result })
 	})
 })
+app.get("/ganadores", (req, res) => {
+	var query = "SELECT * FROM ganadores 
+	connection.query(query, (err, result, f) => {
+		if (err) {
+			throw err
+		}
+		
+		res.render("ganadores", { tickets: result })
+	})
+})
 
 app.get("/logout", (req, res) => {
 	req.session.user = null
