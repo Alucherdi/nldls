@@ -2,13 +2,15 @@
 	<table>
 		<tr>
 			<th>Posición</th>
-			<th>Usuario</th>
+			<th>Nombre</th>
+			<th>Apellidos</th>
 			<th>Tickets</th>
 		</tr>
 		{{#each tickets}}
 		<tr>
-			<td>{{this.lugar}}</td>
+			<td>{{this.posicion}}</td>
 			<td>{{this.nombre}}</td>
+			<td>{{this.apellidos}}</td>			
 			<td>{{this.tickets}}</td>
 		</tr>
 		{{/each}}

@@ -193,7 +193,7 @@ app.get("/ranking", (req, res) => {
 	})
 })
 app.get("/ganadores", (req, res) => {
-	var query = "SELECT * FROM ganadores" 
+	var query = "SELECT posicion,nombre,apellidos,tickets FROM ganadores ORDER BY posicion DESC" 
 	connection.query(query, (err, result, f) => {
 		if (err) {
 			throw err
