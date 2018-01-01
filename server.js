@@ -14,7 +14,7 @@ var connection
 function handleDisconnect () {
 	connection = mysql.createConnection({
 		host: "50.62.209.199",
-		user: "cesarPromo1",
+		user: "cesarPromo12",
 		password: "litrossuerte1994",
 		database: "Litros_suerte3"
 	})
